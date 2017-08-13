@@ -17,21 +17,35 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 function aff_shortcode_init() {
 	function affiliates_shortcode( $atts = [], $content = null ) {
 
-		// do something to $content
-		include('input-page.php');
+		if ( !isset($_POST['submitted'] ) ) {
+			include( 'input-page.php' );
+		} else {
+			$first_name = htmlspecialchars( $_POST[ 'firstName' ] );
+			$last_name = htmlspecialchars( $_POST[ 'lastName' ] );
+			$email = htmlspecialchars( $_POST[ 'inputEmail' ] );
+			$instagram = htmlspecialchars( $_POST[ 'instagramUser' ] );
+			$coupon_code = htmlspecialchars( $_POST[ 'couponCode' ] );
+
+			require_once( 'affiliates.class.php' );
+
+			$affiliate_list = new Affiliates;
+			$affiliate_list->affiliates = get_option( 'affiliates' );
+			$affiliate_list->input_affiliate( $first_name, $last_name, $email, $instagram , $coupon_code );
+			$affiliates = $affiliate_list->get_affiliates();
+
+			if ( false == get_option( 'affiliates' ) ) {
+				update_option( 'affiliates', $affiliates );
+			} else {
+				update_option( 'affiliates', $affiliates );
+			}
+
+			echo "<br/><h2>Awesome! Will get back to you soon $first_name.<br/><br/>Talk to you soon 😉.</h2>";
+		}
+
 		$content = '';
 
-		// always return
 		return $content;
 	}
 	add_shortcode('affiliates', 'affiliates_shortcode');
 }
 add_action( 'init', 'aff_shortcode_init' );
-
-
-
-
-// add_option($name, $value, $deprecated, $autoload);
-// ie. add_option( 'affiliates_coupons', $affiliate, null, 'yes' );
-// get_option($option);
-// update_option($option_name, $newvalue);

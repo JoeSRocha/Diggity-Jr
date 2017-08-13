@@ -12,7 +12,10 @@
 		<![endif]-->
 
 	<form class="form-horizontal" method="post">
+		<h2>Every three users that use your code, gets you free gear!</h2>
 
+		<h3>*Click here for more <a href='/affiliate-details'>details.</a></h3>
+		<br/>
 		<div class="form-group">
 			<label for="firstName" class="col-sm-2 control-label">First Name</label>
 			<div class="col-sm-10">
@@ -35,14 +38,14 @@
 		</div>
 		<br/>
 		<div class="form-group">
-			<label for="instagramUser" class="col-sm-2 control-label">IG User</label>
+			<label for="instagramUser" class="col-sm-2 control-label">Instagram User</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="instagramUser" placeholder="Instagram User">
+				<input type="text" class="form-control" id="instagramUser" placeholder="@">
 			</div>
 		</div>
 		<br/>
 		<div class="form-group">
-			<label for="couponCode" class="col-sm-2 control-label">Coupon Code</label>
+			<label for="couponCode" class="col-sm-2 control-label">Coupon/Affiliate Code desired?</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="couponCode" placeholder="Coupon Code">
 			</div>
@@ -50,30 +53,8 @@
 		<br/>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default">Submit</button>
-			</div> 
+				<button type="submit" name="submitted" class="btn btn-default">Submit</button>
+			</div>
 		</div>
-		
+
 	</form>
-
-<?php
-
-if ( $_SERVER["REQUEST_METHOD"] == "POST") {
-		$first_name = htmlspecialchars( $_POST['firstName'] );
-		$last_name = htmlspecialchars( $_POST['lastName'] );
-		$email = htmlspecialchars( $_POST['inputEmail'] );
-		$coupon_code = htmlspecialchars( $_POST['couponCode'] );
-
-		function mempty() {
-			foreach( func_get_args() as $arg )
-				if( ! empty( $arg ) )
-					continue;
-				else
-					return false;
-				return true;
-		}
-
-		if ( mempty( $first_name, $last_name, $email ) ) {
-			echo "<br/><h5>Awesome! Will get back to you soon $first_name.</h5>";
-		}
-}
