@@ -40,14 +40,14 @@
 		<div class="form-group">
 			<label for="instagramUser" class="col-sm-2 control-label">Instagram User</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="instagramUser" placeholder="@">
+				<input type="text" class="form-control" name="instagramUser" placeholder="@" required>
 			</div>
 		</div>
 		<br/>
 		<div class="form-group">
 			<label for="couponCode" class="col-sm-2 control-label">Coupon/Affiliate Code desired?</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="couponCode" placeholder="Coupon Code">
+				<input type="text" class="form-control" name="couponCode" placeholder="Coupon Code" required>
 			</div>
 		</div>
 		<br/>

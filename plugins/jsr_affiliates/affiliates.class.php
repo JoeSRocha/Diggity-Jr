@@ -2,8 +2,8 @@
 
 class Affiliates {
 
-	public $affiliates = [];
-	private $affiliate = [];
+	public $affiliate = [];
+	public $all_affiliates = [];
 
 	public function input_affiliate( $first, $last, $email, $ig, $coupon ) {
 
@@ -14,18 +14,17 @@ class Affiliates {
 			'ig'	=> $ig,
 			'coupon' => $coupon,
 		];
-
 	}
 
 	public function get_affiliates() {
-
-		if ( ! empty( $this->affiliates ) ) {
-			array_push( $this->affiliates, $this->affiliate );
-			return $this->affiliates;
+		if ( empty( $this->all_affiliates ) ) {
+			$this->all_affiliates = [];
+			array_push( $this->all_affiliates, $this->affiliate );
+			return $this->all_affiliates;
 		} else {
-			return $this->affiliate;
+			array_push( $this->all_affiliates, $this->affiliate );
+			return $this->all_affiliates;
 		}
 	}
 
 }
-

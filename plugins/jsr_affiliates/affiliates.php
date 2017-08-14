@@ -29,17 +29,13 @@ function aff_shortcode_init() {
 			require_once( 'affiliates.class.php' );
 
 			$affiliate_list = new Affiliates;
-			$affiliate_list->affiliates = get_option( 'affiliates' );
+			$affiliate_list->all_affiliates = get_option( 'affiliates' );
 			$affiliate_list->input_affiliate( $first_name, $last_name, $email, $instagram , $coupon_code );
 			$affiliates = $affiliate_list->get_affiliates();
 
-			if ( false == get_option( 'affiliates' ) ) {
-				update_option( 'affiliates', $affiliates );
-			} else {
-				update_option( 'affiliates', $affiliates );
-			}
+			update_option( 'affiliates', $affiliates );
 
-			echo "<br/><h2>Awesome! Will get back to you soon $first_name.<br/><br/>Talk to you soon 😉.</h2>";
+			echo "<br/><h2>Awesome! Looking forward to working together.<br/><br/>Talk to you soon  $first_name 😉.</h2>";
 		}
 
 		$content = '';
@@ -49,3 +45,5 @@ function aff_shortcode_init() {
 	add_shortcode('affiliates', 'affiliates_shortcode');
 }
 add_action( 'init', 'aff_shortcode_init' );
+
+include( 'admin/admin-functions.php' );
