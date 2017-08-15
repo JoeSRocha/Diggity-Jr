@@ -27,4 +27,15 @@ class Affiliates {
 		}
 	}
 
+	public function del_affiliate( $unset_affiliate ) {
+		for ( $i = 0; $i < count( $this->all_affiliates ); $i++ ) {
+			foreach ( $this->all_affiliates[$i] as $key => $val ) {
+				if ( $unset_affiliate == $val ) {
+					unset( $this->all_affiliates[$i] );
+				}
+			}
+		}
+		return $this->all_affiliates;
+	}
+
 }

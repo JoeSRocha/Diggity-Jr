@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 // Shortcode Creation
 function aff_shortcode_init() {
-	function affiliates_shortcode( $atts = [], $content = null ) {
+	function affiliates_shortcode( $content = null ) {
 
 		if ( !isset($_POST['submitted'] ) ) {
 			include( 'input-page.php' );
