@@ -27,11 +27,25 @@ class Affiliates {
 		}
 	}
 
+	public function update_affiliates( $aff_update, $new_val ) {
+		$i = 0;
+		foreach ( $this->all_affiliates[$i] as $key => &$val ) {
+			$i++;
+			if ( $aff_update == $val ) {
+				$val = $new_val;
+				break;
+			}
+		}
+		return $this->all_affiliates;	
+	}
+
+
 	public function del_affiliate( $unset_affiliate ) {
 		for ( $i = 0; $i < count( $this->all_affiliates ); $i++ ) {
 			foreach ( $this->all_affiliates[$i] as $key => $val ) {
 				if ( $unset_affiliate == $val ) {
 					unset( $this->all_affiliates[$i] );
+					break 2;
 				}
 			}
 		}
