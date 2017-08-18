@@ -31,9 +31,9 @@
 		</div>
 		<br/>
 		<div class="form-group">
-			<label for="inputEmail" class="col-sm-2 control-label">Email address</label>
+			<label for="user_email" class="col-sm-2 control-label">Email address</label>
 			<div class="col-sm-10">
-				<input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required>
+				<input type="email" id="user_email" name="user_email" class="form-control" placeholder="Email" required>
 			</div>
 		</div>
 		<br/>
@@ -56,5 +56,6 @@
 				<button type="submit" name="submitted" class="btn btn-default">Submit</button>
 			</div>
 		</div>
+		</form>
 
-	</form>
+

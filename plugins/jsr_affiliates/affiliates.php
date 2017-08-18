@@ -22,7 +22,7 @@ function aff_shortcode_init() {
 		} else {
 			$first_name = htmlspecialchars( $_POST[ 'firstName' ] );
 			$last_name = htmlspecialchars( $_POST[ 'lastName' ] );
-			$email = htmlspecialchars( $_POST[ 'inputEmail' ] );
+			$email = htmlspecialchars( $_POST[ 'user_email' ] );
 			$instagram = htmlspecialchars( $_POST[ 'instagramUser' ] );
 			$coupon_code = htmlspecialchars( $_POST[ 'couponCode' ] );
 
@@ -36,6 +36,22 @@ function aff_shortcode_init() {
 			update_option( 'affiliates', $affiliates );
 
 			echo "<br/><h2>Awesome! Looking forward to working together.<br/><br/>Talk to you soon  $first_name 😉.</h2>";
+
+			$userdata = array(
+				'user_login' 	=> $_POST['firstName'] . $_POST['lastName'] ,
+				'user_email' 	=> $_POST['user_email'],
+				//'user_pass'   	=> wp_generate_password(6, false),
+				'user_pass'   	=>	NULL,
+				'first_name'    => $_POST['firstName'],
+				'last_name'     => $_POST['lastName'],
+			);
+			$user_id = wp_insert_user( $userdata ) ;
+			//On success
+			if ( ! is_wp_error( $user_id ) ) {
+				echo '<br/><h3>Fyi, your login Username is ' . $_POST['firstName'] . $_POST['lastName'] . '</h3>';
+				echo '<h3>You may login <a href="/my-account/">here</a></h3>';
+				wp_new_user_notification( $user_id, 'both' );
+			}
 		}
 
 		$content = '';
