@@ -39,6 +39,16 @@ class Affiliates {
 		return $this->all_affiliates;
 	}
 
+	public function check_coupon_affiliates( $coupon ) {
+		for ( $i = 0; $i < count( $this->all_affiliates ); $i++ ) {
+			foreach ( $this->all_affiliates[$i] as $key => &$val ) {
+				if ( $coupon == $val ) {
+					return $this->all_affiliates[$i];
+				}
+			}
+		}
+	}
+
 
 	public function del_affiliate( $unset_affiliate ) {
 		for ( $i = 0; $i < count( $this->all_affiliates ); $i++ ) {

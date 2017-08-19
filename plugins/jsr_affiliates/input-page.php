@@ -12,7 +12,7 @@
 		<![endif]-->
 
 	<form class="form-horizontal" method="post">
-		<h2>Every three users that use your code, gets you free gear!</h2>
+		<h2>Every 3 users that use your 15% off code, gets you free gear!</h2>
 
 		<h3>*Click here for more <a href='/affiliate-details'>details.</a></h3>
 		<br/>
@@ -45,7 +45,7 @@
 		</div>
 		<br/>
 		<div class="form-group">
-			<label for="couponCode" class="col-sm-2 control-label">Coupon/Affiliate Code desired?</label>
+			<label for="couponCode" class="col-sm-2 control-label">Your 15% off Affiliate Code</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" name="couponCode" placeholder="Coupon Code" required>
 			</div>
