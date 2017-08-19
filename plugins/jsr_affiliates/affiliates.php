@@ -14,7 +14,7 @@ Domain Path: /languages
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 require_once( 'affiliates.class.php' );
-$affiliate_list = new Affiliates;
+
 // Shortcode Creation
 function aff_shortcode_init() {
 	function affiliates_shortcode( $content = null ) {
@@ -27,6 +27,7 @@ function aff_shortcode_init() {
 			$email = htmlspecialchars( $_POST[ 'user_email' ] );
 			$instagram = htmlspecialchars( $_POST[ 'instagramUser' ] );
 			$coupon_code = htmlspecialchars( $_POST[ 'couponCode' ] );
+			$affiliate_list = new Affiliates;
 			$affiliate_list->all_affiliates = get_option( 'affiliates' );
 			$affiliate_list->input_affiliate( $first_name, $last_name, $email, $instagram , $coupon_code );
 			$affiliates = $affiliate_list->get_affiliates();
@@ -38,7 +39,6 @@ function aff_shortcode_init() {
 			$userdata = array(
 				'user_login' 	=> $_POST['firstName'] . $_POST['lastName'] ,
 				'user_email' 	=> $_POST['user_email'],
-				//'user_pass'   	=> wp_generate_password(6, false),
 				'user_pass'   	=>	NULL,
 				'first_name'    => $_POST['firstName'],
 				'last_name'     => $_POST['lastName'],
@@ -51,7 +51,6 @@ function aff_shortcode_init() {
 				wp_new_user_notification( $user_id, 'both' );
 			}
 			// Create Coupon
-			//$coupon_code = 'UNIQUECODE'; // Code
 			$amount = '15'; // Amount
 			$discount_type = 'percent'; // Type: fixed_cart, percent, fixed_product, percent_product
 			$person = $_POST['firstName'] . ' ' . $_POST['lastName'];
@@ -89,17 +88,16 @@ add_action( 'init', 'aff_shortcode_init' );
 
 include( 'admin/admin-functions.php' );
 
-
-/*
 function custom_emails_on_applied_coupon( $coupon_code ) {
+	$affiliate_list = new Affiliates;
 	$affiliates = $affiliate_list->all_affiliates = get_option( 'affiliates' );
 	$affiliate = $affiliate_list->check_coupon_affiliates( $coupon_code );
-	$to = $affiliate['email'];
+	$to = $affiliate['first'] . ' ' . $affiliate['last']  . ' <' . $affiliatef['email'] . '>';
 	$subject = 'Someone is at checkout with your referral code!';
 	$content = "The coupon code \"$coupon_code\" has been applied by a customer. SCORE! We will email you again, when the order completes!";
 	$headers = array(
-	'From: Savannah@DiggityJr.com <savannah@diggityjr.com>',
-	'Bcc: Joe Adroit <joesrocha@gmail.com>',
+	'From: DiggityJr.com <savannah@diggityjr.com>',
+	'Cc: Savannah <savannah@diggityjr.com>',
 	);
 	wp_mail( $to, $subject, $content, $headers );
 }
@@ -107,17 +105,18 @@ add_action( 'woocommerce_applied_coupon', 'custom_emails_on_applied_coupon', 10,
 
 
 function orders_complete_affiliate( $coupon_code ) {
+	$affiliate_list = new Affiliates;
 	$affiliates = $affiliate_list->all_affiliates = get_option( 'affiliates' );
 	$affiliate = $affiliate_list->check_coupon_affiliates( $coupon_code );
-	$to = $affiliate['email'];
+	$to = $affiliate['first'] . ' ' . $affiliate['last']  . ' <' . $affiliatef['email'] . '>';
+	echo $to;
 	$subject = 'Someone completed an order at checkout with your referral code!';
 	$content = "The coupon code $coupon_code has been used by a customer. SCORE!
-	If this is the third purchase, email us back and let me know what tee in color and size to send ;).";
+If this is the third purchase, email us back and let me know what tee in color and size to send ;).";
 	$headers = array(
-		'From: Savannah@DiggityJr.com <savannah@diggityjr.com>',
-		'Bcc: Joe Adroit <joesrocha@gmail.com>',
+		'From: DiggityJr.com <savannah@diggityjr.com>',
+		'Cc: Savannah <savannah@diggityjr.com>',
 		);
-	wp_mail( $to, $subject, $content );
+	wp_mail( $to, $subject, $content, $headers );
 }
-add_action( 'woocommerce_checkout_process', 'orders_complete_affiliate' );
-*/
+add_action( 'woocommerce_order_status_completed', 'orders_complete_affiliate' );

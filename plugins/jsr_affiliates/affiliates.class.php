@@ -40,11 +40,9 @@ class Affiliates {
 	}
 
 	public function check_coupon_affiliates( $coupon ) {
-		for ( $i = 0; $i < count( $this->all_affiliates ); $i++ ) {
-			foreach ( $this->all_affiliates[$i] as $key => &$val ) {
-				if ( $coupon == $val ) {
-					return $this->all_affiliates[$i];
-				}
+		foreach ( $this->all_affiliates as $key => &$val ) {
+			if ( $this->all_affiliates[$key]['coupon'] == $coupon ) {
+				return $this->all_affiliates[$key];
 			}
 		}
 	}
