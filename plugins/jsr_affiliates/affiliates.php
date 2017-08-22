@@ -92,14 +92,16 @@ function custom_emails_on_applied_coupon( $coupon_code ) {
 	$affiliate_list = new Affiliates;
 	$affiliates = $affiliate_list->all_affiliates = get_option( 'affiliates' );
 	$affiliate = $affiliate_list->check_coupon_affiliates( $coupon_code );
-	$to = $affiliate['first'] . ' ' . $affiliate['last']  . ' <' . $affiliatef['email'] . '>';
-	$subject = 'Someone is at checkout with your referral code!';
-	$content = "The coupon code \"$coupon_code\" has been applied by a customer. SCORE! We will email you again, when the order completes!";
-	$headers = array(
-	'From: DiggityJr.com <savannah@diggityjr.com>',
-	'Cc: Savannah <savannah@diggityjr.com>',
-	);
-	wp_mail( $to, $subject, $content, $headers );
+	if ( ! empty( $affiliate ) ) {
+		$to = $affiliate['first'] . ' ' . $affiliate['last']  . ' <' . $affiliatef['email'] . '>';
+		$subject = 'Someone is at checkout with your referral code!';
+		$content = "The coupon code \"$coupon_code\" has been applied by a customer. SCORE! We will email you again, when the order completes!";
+		$headers = array(
+		'From: DiggityJr.com <savannah@diggityjr.com>',
+		'Cc: Savannah <savannah@diggityjr.com>',
+		);
+		wp_mail( $to, $subject, $content, $headers );
+	}
 }
 add_action( 'woocommerce_applied_coupon', 'custom_emails_on_applied_coupon', 10, 1 );
 
@@ -109,7 +111,6 @@ function orders_complete_affiliate( $coupon_code ) {
 	$affiliates = $affiliate_list->all_affiliates = get_option( 'affiliates' );
 	$affiliate = $affiliate_list->check_coupon_affiliates( $coupon_code );
 	$to = $affiliate['first'] . ' ' . $affiliate['last']  . ' <' . $affiliatef['email'] . '>';
-	echo $to;
 	$subject = 'Someone completed an order at checkout with your referral code!';
 	$content = "The coupon code $coupon_code has been used by a customer. SCORE!
 If this is the third purchase, email us back and let me know what tee in color and size to send ;).";
