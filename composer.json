@@ -23,6 +23,7 @@
     "wpackagist-plugin/woocommerce-paypal-payments":"^1.5.1",
     "wpackagist-plugin/woocommerce-services":"^1.25.18",
     "wpackagist-plugin/woocommerce-gateway-stripe":"^5.5.0",
+    "wpackagist-plugin/wordpress-seo":"^17.0.0",
     "wpackagist-plugin/wp-quiz":"^2.0.6",
     "vlucas/phpdotenv": "^4.1.0"
   },
