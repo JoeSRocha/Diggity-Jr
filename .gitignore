@@ -8,17 +8,15 @@ wp-admin
 wp-content/*
 wp-content/themes/*
 wp-content/plugins/*
-wp-content/themes/understrap-child/vendor
-wp-content/themes/understrap-child/node_modules
 wp-includes
 vendor
 .env
 .ddev/*
 
 # Allow
+!wp-config.php
 !wp-content/themes/shopkeeper
 !wp-content/themes/shopkeeper-2.9.39
 !wp-content/themes/shopkeeper-child
 !wp-content/plugins/jsr_affiliates
-!wp-content/plugins/wordpress-seo-premium
 !wp-content/plugins/js_composer
