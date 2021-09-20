@@ -1,19 +1,24 @@
-*.log
-wp-config.php
-wp-content/advanced-cache.php
-wp-content/backup-db/
-wp-content/backups/
-wp-content/blogs.dir/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/uploads/
-wp-content/wp-cache-config.php
-wp-content/plugins/hello.php
-wp-content/themes/shopkeeper/
+# Ignore
+/*.php
+/*.txt
+/*.log
+/*.html
+/*.conf
+wp-admin
+wp-content/*
+wp-content/themes/*
+wp-content/plugins/*
+wp-content/themes/understrap-child/vendor
+wp-content/themes/understrap-child/node_modules
+wp-includes
+vendor
+.env
+.ddev/*
 
-/.htaccess
-/license.txt
-/readme.html
-/sitemap.xml
-/sitemap.xml.gz
-
+# Allow
+!wp-content/themes/shopkeeper
+!wp-content/themes/shopkeeper-2.9.39
+!wp-content/themes/shopkeeper-child
+!wp-content/plugins/jsr_affiliates
+!wp-content/plugins/wordpress-seo-premium
+!wp-content/plugins/js_composer
