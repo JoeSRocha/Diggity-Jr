@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8de00e1fb618d3f1e1130d3df48ad140",
+    "content-hash": "6a7bf80081b7b4ef6c1b682abe9ef8f7",
     "packages": [
         {
             "name": "composer/installers",
@@ -449,15 +449,15 @@
         },
         {
             "name": "wpackagist-plugin/ewww-image-optimizer",
-            "version": "5.8.2",
+            "version": "6.2.5",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ewww-image-optimizer/",
-                "reference": "tags/5.8.2"
+                "reference": "tags/6.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ewww-image-optimizer.5.8.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/ewww-image-optimizer.6.2.5.zip"
             },
             "require": {
                 "composer/installers": "~1.0 || ~2.0"
@@ -690,5 +690,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "1.1.0"
 }
