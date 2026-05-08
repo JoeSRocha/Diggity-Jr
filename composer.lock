@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce693b4eaeeb0bd1577850b43502a6cf",
+    "content-hash": "a66e027d6cffa9417ee358084fbb6d0e",
     "packages": [
         {
             "name": "composer/installers",
@@ -394,15 +394,15 @@
         },
         {
             "name": "wpackagist-plugin/advanced-nocaptcha-recaptcha",
-            "version": "6.1.7",
+            "version": "7.6.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/advanced-nocaptcha-recaptcha/",
-                "reference": "tags/6.1.7"
+                "reference": "tags/7.6.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-nocaptcha-recaptcha.6.1.7.zip"
+                "url": "https://downloads.wordpress.org/plugin/advanced-nocaptcha-recaptcha.7.6.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -430,15 +430,15 @@
         },
         {
             "name": "wpackagist-plugin/contact-form-7",
-            "version": "5.9.8",
+            "version": "6.1.5",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/contact-form-7/",
-                "reference": "tags/5.9.8"
+                "reference": "tags/6.1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.9.8.zip"
+                "url": "https://downloads.wordpress.org/plugin/contact-form-7.6.1.5.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -466,15 +466,15 @@
         },
         {
             "name": "wpackagist-plugin/ewww-image-optimizer",
-            "version": "6.9.3",
+            "version": "8.5.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ewww-image-optimizer/",
-                "reference": "tags/6.9.3"
+                "reference": "tags/8.5.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ewww-image-optimizer.6.9.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/ewww-image-optimizer.8.5.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -502,15 +502,15 @@
         },
         {
             "name": "wpackagist-plugin/jetpack",
-            "version": "10.1",
+            "version": "15.8",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/10.1"
+                "reference": "tags/15.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/jetpack.10.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/jetpack.15.8.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -574,15 +574,15 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce",
-            "version": "5.9.2",
+            "version": "10.7.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/woocommerce/",
-                "reference": "tags/5.9.2"
+                "reference": "tags/10.7.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce.5.9.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.10.7.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -592,15 +592,15 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce-gateway-stripe",
-            "version": "5.9.2",
+            "version": "10.6.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/woocommerce-gateway-stripe/",
-                "reference": "tags/5.9.2"
+                "reference": "tags/10.6.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce-gateway-stripe.5.9.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-gateway-stripe.10.6.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -610,15 +610,15 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce-paypal-payments",
-            "version": "1.9.5",
+            "version": "4.0.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/woocommerce-paypal-payments/",
-                "reference": "tags/1.9.5"
+                "reference": "tags/4.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce-paypal-payments.1.9.5.zip"
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-paypal-payments.4.0.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -628,15 +628,15 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce-services",
-            "version": "1.26.3",
+            "version": "3.6.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/woocommerce-services/",
-                "reference": "tags/1.26.3"
+                "reference": "tags/3.6.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce-services.1.26.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-services.3.6.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

@@ -8,20 +8,20 @@
     }
   ],
   "require": {
-    "wpackagist-plugin/advanced-nocaptcha-recaptcha":"^6.1.5",
+    "wpackagist-plugin/advanced-nocaptcha-recaptcha":"^7.6.0",
     "wpackagist-plugin/classic-editor":"^1.6",
-    "wpackagist-plugin/contact-form-7":"^5.4.2",
+    "wpackagist-plugin/contact-form-7":"^6.1.5",
     "wpackagist-plugin/disable-emails":"^1.6.1",
-    "wpackagist-plugin/ewww-image-optimizer":"^6.2.5",
+    "wpackagist-plugin/ewww-image-optimizer":"^8.5.0",
     "wpackagist-plugin/instock-email-alert-for-woocommerce":"^1.1.2",
-    "wpackagist-plugin/jetpack":"10.1",
+    "wpackagist-plugin/jetpack":"15.8",
     "wpackagist-plugin/log-emails":"^1.4.0",
     "wpackagist-plugin/printful-shipping-for-woocommerce":"^2.1.25",
     "wpackagist-plugin/w3-total-cache":"^2.0.1",
-    "wpackagist-plugin/woocommerce":"^5.6.0",
-    "wpackagist-plugin/woocommerce-paypal-payments":"^1.5.1",
-    "wpackagist-plugin/woocommerce-services":"^1.25.18",
-    "wpackagist-plugin/woocommerce-gateway-stripe":"^5.5.0",
+    "wpackagist-plugin/woocommerce":"^10.7.0",
+    "wpackagist-plugin/woocommerce-paypal-payments":"^4.0.3",
+    "wpackagist-plugin/woocommerce-services":"^3.6.1",
+    "wpackagist-plugin/woocommerce-gateway-stripe":"^10.6.1",
     "vlucas/phpdotenv": "^4.1.0"
   },
   "extra": {
