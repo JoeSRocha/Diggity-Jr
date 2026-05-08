@@ -15,7 +15,6 @@
     "wpackagist-plugin/ewww-image-optimizer":"^6.2.5",
     "wpackagist-plugin/instock-email-alert-for-woocommerce":"^1.1.2",
     "wpackagist-plugin/jetpack":"10.1",
-    "wpackagist-plugin/mailjet-for-wordpress":"^5.2.1",
     "wpackagist-plugin/log-emails":"^1.4.0",
     "wpackagist-plugin/printful-shipping-for-woocommerce":"^2.1.25",
     "wpackagist-plugin/w3-total-cache":"^2.0.1",
@@ -23,14 +22,17 @@
     "wpackagist-plugin/woocommerce-paypal-payments":"^1.5.1",
     "wpackagist-plugin/woocommerce-services":"^1.25.18",
     "wpackagist-plugin/woocommerce-gateway-stripe":"^5.5.0",
-    "wpackagist-plugin/wordpress-seo":"^17.0.0",
-    "wpackagist-plugin/wp-quiz":"^2.0.6",
     "vlucas/phpdotenv": "^4.1.0"
   },
   "extra": {
     "installer-paths": {
       "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
       "wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
     }
   }
 }

@@ -21,13 +21,18 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 
-define('DB_NAME',     $_ENV['DB_NAME']);
-define('DB_USER',     $_ENV['DB_USER']);
-define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
-define('DB_HOST',     $_ENV['DB_HOST']);
-define('WP_HOME',     $_ENV['WP_HOME']);
-define('WP_SITEURL',  $_ENV['WP_HOME']);
-define('WP_DEBUG',    (int)$_ENV['WP_DEBUG']);
+$ddev_settings = dirname(__FILE__) . '/wp-config-ddev.php';
+if ( is_readable($ddev_settings) ) :
+	require_once($ddev_settings);
+else :
+	define('DB_NAME',     $_ENV['DB_NAME']);
+	define('DB_USER',     $_ENV['DB_USER']);
+	define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
+	define('DB_HOST',     $_ENV['DB_HOST']);
+	define('WP_HOME',     $_ENV['WP_HOME']);
+	define('WP_SITEURL',  $_ENV['WP_HOME']);
+	define('WP_DEBUG',    (int)$_ENV['WP_DEBUG']);
+endif;
 
 define('DB_CHARSET',  $_ENV['DB_CHARSET']);
 define('DB_COLLATE',  $_ENV['DB_COLLATE']);
