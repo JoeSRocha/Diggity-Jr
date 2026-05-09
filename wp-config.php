@@ -34,6 +34,11 @@ else :
 	define('WP_DEBUG',    (int)$_ENV['WP_DEBUG']);
 endif;
 
+define('WP_DEBUG_LOG',      (int)$_ENV['WP_DEBUG_LOG']);
+define('WP_DEBUG_DISPLAY',  (int)$_ENV['WP_DEBUG_DISPLAY']);
+ini_set('display_errors',   (int)$_ENV['DISPLAY_ERRORS']);
+
+
 define('DB_CHARSET',  $_ENV['DB_CHARSET']);
 define('DB_COLLATE',  $_ENV['DB_COLLATE']);
 define('FS_METHOD',   $_ENV['FS_METHOD']);
