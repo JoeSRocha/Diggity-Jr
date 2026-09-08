@@ -37,7 +37,7 @@
     "wpackagist-plugin/log-emails":"^1.4.0",
     "wpackagist-plugin/printful-shipping-for-woocommerce":"^2.1.25",
     "wpackagist-plugin/w3-total-cache":"^2.0.1",
-    "wpackagist-plugin/woocommerce":"^10.7.0",
+    "wpackagist-plugin/woocommerce":"^11.0",
     "wpackagist-plugin/woocommerce-paypal-payments":"^4.0.3",
     "wpackagist-plugin/woocommerce-services":"^3.6.1",
     "wpackagist-plugin/woocommerce-gateway-stripe":"^10.6.1",

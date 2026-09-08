@@ -15,8 +15,10 @@ exec 9>.git/diggityjr-deploy.lock
 flock -n 9 || { echo 'Another deployment is running.' >&2; exit 1; }
 [ "$(git branch --show-current)" = master ] || { echo 'Production must be on master.' >&2; exit 1; }
 [ -z "$(git status --porcelain)" ] || { echo 'Production has local changes; reconcile them first.' >&2; git status --short; exit 1; }
-for command in git composer wp tar curl; do command -v "$command" >/dev/null; done
+for command in git composer wp tar curl sudo; do command -v "$command" >/dev/null; done
 [ -w .git ] && [ -w wp-content/plugins ] && [ -w vendor ]
+# Check the required service permission before modifying production.
+sudo -n -l /usr/bin/systemctl reload php-fpm-diggityjr.service >/dev/null
 git -c url.https://github.com/JoeSRocha/Diggity-Jr.git.insteadOf=git@github.com:JoeSRocha/Diggity-Jr.git fetch origin master
 target=$(git rev-parse origin/master)
 previous=$(git rev-parse HEAD)
@@ -58,6 +60,8 @@ maintenance=1
 git merge --ff-only "$target"
 composer install --no-dev --prefer-dist --no-interaction --no-scripts --optimize-autoloader
 composer check-platform-reqs --no-dev
+# Replace cached PHP/autoloader code before serving the new plugin files.
+sudo -n /usr/bin/systemctl reload php-fpm-diggityjr.service
 wp core update-db --skip-plugins --skip-themes
 wp eval 'echo "WordPress loaded successfully.\n";'
 wp maintenance-mode deactivate

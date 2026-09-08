@@ -34,6 +34,7 @@ Deploy refuses a dirty/diverged production checkout, creates private database an
 application backups under `/var/lib/diggityjr/db-backups/diggityjr/`, enables maintenance mode,
 fast-forwards Git, and installs exact locked production dependencies. Composer
 scripts are disabled; the configured Composer installer plugin is allowed. It
+reloads only `php-fpm-diggityjr.service` to clear cached PHP/autoloader code, then
 checks PHP requirements, WordPress loading, and HTTP responses for storefront and
 login routes. It does not activate newly installed plugins or exercise payments.
 Uploads, caches, and the production `.env` are not replaced by deployment.
