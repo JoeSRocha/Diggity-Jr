@@ -24,6 +24,46 @@ Version: 1.0
     letter-spacing: 2px;
 }
 
+/* Keep every catalog card square without cropping portrait product photos. */
+ul.products .product_thumbnail {
+    position: relative;
+    aspect-ratio: 1 / 1;
+}
+
+ul.products .product_thumbnail > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+ul.products .product_thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+ul.products .product_thumbnail_background {
+    inset: 0;
+    background-size: contain;
+    background-position: center;
+}
+
+/* Swap both layers together; the theme's delayed fade shows both photos. */
+ul.products .product_thumbnail.with_second_image img,
+ul.products .product_thumbnail.with_second_image .product_thumbnail_background {
+    transition: none !important;
+}
+
+ul.products .product_thumbnail.with_second_image .product_thumbnail_background {
+    opacity: 0 !important;
+}
+
+ul.products .product_thumbnail_wrapper:hover .product_thumbnail.with_second_image.second_image_loaded .product_thumbnail_background {
+    opacity: 1 !important;
+}
+
 
 
 

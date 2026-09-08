@@ -9,7 +9,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_parent_theme_style' );
 function enqueue_parent_theme_style() {
 
     wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri().'/style.css' );
+    wp_enqueue_style( 'child-style', add_query_arg( 'modified', filemtime( get_stylesheet_directory() . '/style.css' ), get_stylesheet_directory_uri() . '/style.css' ), array( 'parent-style' ) );
 
 }
 
