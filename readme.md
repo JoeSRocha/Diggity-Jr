@@ -1,4 +1,25 @@
 # DDEV Project Template
+## Registration protections
+
+`wp-content/mu-plugins/diggityjr-registration-guard.php` loads automatically.
+Standalone WooCommerce and native WordPress registration are disabled; customers
+can create accounts during checkout. Direct posts to the old registration handler
+are rejected. Classic checkout includes a hidden honeypot. Classic and Store API
+new-account creation share an atomic limit of five attempts per IP (IPv6 /64) per
+15 minutes. Guest checkout and existing-account login are unaffected. Administrator
+account creation and WP-CLI are exempt. IPs are stored as salted hashes in the
+WooCommerce rate-limit table and use its existing expiry cleanup.
+
+The guard trusts only `REMOTE_ADDR`, not client-provided forwarding headers. If a
+reverse proxy is added, configure trusted real-IP handling at the web server first.
+These controls reduce automated registrations; they do not verify email ownership
+or stop distributed bots. No CAPTCHA service or external account is required.
+
+Run integration checks with `ddev exec php scripts/test-registration-guard.php`.
+They use a reserved test IP and clean up its rate-limit row without creating users,
+orders, or emails. Revert the guard commit and redeploy to roll back; the stored
+My Account registration setting remains disabled from the earlier mitigation.
+
 ```
 $ ddev config --project-type=wordpress --docroot=.
 $ ddev start

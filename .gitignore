@@ -14,6 +14,7 @@ vendor
 .ddev/*
 
 # Allow
+!wp-content/mu-plugins/
 !wp-config.php
 !wp-content/themes/shopkeeper
 !wp-content/themes/shopkeeper-2.9.39
