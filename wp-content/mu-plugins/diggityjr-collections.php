@@ -6,21 +6,41 @@
 
 defined( 'ABSPATH' ) || exit;
 
-function diggityjr_halloween_page_url() {
-	$page = get_page_by_path( 'halloween-collection' );
+function diggityjr_collection_settings() {
+	return array(
+		'halloween' => array(
+			'page' => 'halloween-collection',
+			'intro' => 'A little spooky. A lot of personality. Find your Halloween favorites for every age.',
+			'meta' => 'Shop the Halloween Collection at Diggity Jr. Discover spooky tees and bodysuits for babies, kids, youth, and adults, organized by age.',
+		),
+		'disney-inspired' => array(
+			'page' => 'disney-inspired-collection',
+			'intro' => 'A little nostalgia. A lot of personality. Explore Disney-inspired favorites for every age.',
+			'meta' => 'Shop the Disney-Inspired Collection at Diggity Jr. Explore tees, bodysuits, and more for babies, kids, youth, and adults, organized by age.',
+		),
+	);
+}
+
+function diggityjr_collection_page_url( $category ) {
+	$settings = diggityjr_collection_settings();
+	if ( ! isset( $settings[ $category ] ) ) {
+		return '';
+	}
+	$page = get_page_by_path( $settings[ $category ]['page'] );
 	return $page && 'publish' === $page->post_status ? get_permalink( $page ) : '';
 }
 
 add_filter( 'term_link', function ( $url, $term, $taxonomy ) {
-	if ( 'product_cat' === $taxonomy && 'halloween' === $term->slug ) {
-		return diggityjr_halloween_page_url() ?: $url;
+	if ( 'product_cat' === $taxonomy ) {
+		return diggityjr_collection_page_url( $term->slug ) ?: $url;
 	}
 	return $url;
 }, 10, 3 );
 
 add_action( 'template_redirect', function () {
-	if ( is_tax( 'product_cat', 'halloween' ) && ! is_feed() ) {
-		$url = diggityjr_halloween_page_url();
+	if ( is_tax( 'product_cat' ) && ! is_feed() ) {
+		$term = get_queried_object();
+		$url = diggityjr_collection_page_url( $term->slug );
 		if ( $url ) {
 			wp_safe_redirect( $url, 301, 'Diggity Jr Collections' );
 			exit;
@@ -37,6 +57,13 @@ function diggityjr_collection_groups( $category ) {
 		'adults' => array( 'title' => 'Adults', 'description' => 'Join the fun with grown-up sizes.', 'slugs' => array( 'adult', 'women' ), 'ids' => array() ),
 		'more' => array( 'title' => 'More Halloween favorites', 'description' => '', 'slugs' => array(), 'ids' => array() ),
 	);
+	if ( 'halloween' !== $category ) {
+		$groups['babies']['description'] = 'Infant tees and bodysuits for your littlest fans.';
+		$groups['kids']['description'] = 'Everyday favorites for little adventures.';
+		$groups['youth']['description'] = 'Familiar characters and fresh looks for bigger kids.';
+		$groups['adults']['description'] = 'Nostalgic favorites in grown-up sizes.';
+		$groups['more']['title'] = 'More collection favorites';
+	}
 	$ids = get_posts( array(
 		'post_type' => 'product', 'post_status' => 'publish', 'numberposts' => -1,
 		'fields' => 'ids', 'orderby' => 'title', 'order' => 'ASC',
@@ -75,27 +102,32 @@ add_shortcode( 'diggityjr_collection', function ( $attributes ) {
 		return '';
 	}
 	$attributes = shortcode_atts( array( 'category' => 'halloween' ), $attributes, 'diggityjr_collection' );
-	$groups = diggityjr_collection_groups( $attributes['category'] );
+	$category = sanitize_title( $attributes['category'] );
+	$settings = diggityjr_collection_settings();
+	if ( ! isset( $settings[ $category ] ) ) {
+		return '';
+	}
+	$groups = diggityjr_collection_groups( $category );
 	ob_start();
 	?>
 	<div class="dj-collection">
-		<p class="dj-collection-intro">A little spooky. A lot of personality. Find your Halloween favorites for every age.</p>
+		<p class="dj-collection-intro"><?php echo esc_html( $settings[ $category ]['intro'] ); ?></p>
 		<?php if ( $groups ) : ?>
 		<nav class="dj-collection-ages" aria-label="Shop collection by age">
 			<?php foreach ( $groups as $key => $group ) : ?>
-				<a href="#halloween-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $group['title'] ); ?></a>
+				<a href="#<?php echo esc_attr( $category ); ?>-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $group['title'] ); ?></a>
 			<?php endforeach; ?>
 		</nav>
 		<p class="dj-collection-help">Shop by age, then choose your size and color on the product page.</p>
 		<?php foreach ( $groups as $key => $group ) : ?>
-		<section class="dj-collection-group" id="halloween-<?php echo esc_attr( $key ); ?>" aria-labelledby="halloween-heading-<?php echo esc_attr( $key ); ?>">
-			<h2 id="halloween-heading-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $group['title'] ); ?></h2>
+		<section class="dj-collection-group" id="<?php echo esc_attr( $category ); ?>-<?php echo esc_attr( $key ); ?>" aria-labelledby="<?php echo esc_attr( $category ); ?>-heading-<?php echo esc_attr( $key ); ?>">
+			<h2 id="<?php echo esc_attr( $category ); ?>-heading-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $group['title'] ); ?></h2>
 			<p><?php echo esc_html( $group['description'] ); ?></p>
 			<?php echo do_shortcode( '[products ids="' . implode( ',', array_map( 'absint', $group['ids'] ) ) . '" columns="3" orderby="title" order="ASC" paginate="false"]' ); ?>
 		</section>
 		<?php endforeach; ?>
 		<?php else : ?>
-		<p>New Halloween favorites are on the way. Check back soon.</p>
+		<p>New collection favorites are on the way. Check back soon.</p>
 		<?php endif; ?>
 	</div>
 	<?php
@@ -103,11 +135,19 @@ add_shortcode( 'diggityjr_collection', function ( $attributes ) {
 } );
 
 add_action( 'wp_head', function () {
-	if ( ! is_page( 'halloween-collection' ) ) {
+	$settings = diggityjr_collection_settings();
+	$setting = null;
+	foreach ( $settings as $candidate ) {
+		if ( is_page( $candidate['page'] ) ) {
+			$setting = $candidate;
+			break;
+		}
+	}
+	if ( ! $setting ) {
 		return;
 	}
 	?>
-	<meta name="description" content="Shop the Halloween Collection at Diggity Jr. Discover spooky tees and bodysuits for babies, kids, youth, and adults, organized by age.">
+	<meta name="description" content="<?php echo esc_attr( $setting['meta'] ); ?>">
 	<style>
 	.dj-collection{max-width:1170px;margin:0 auto;padding:0 24px 64px}
 	.dj-collection-intro{text-align:center;font-size:20px;max-width:720px;margin:0 auto 24px;line-height:1.6}
