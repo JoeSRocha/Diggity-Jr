@@ -14,6 +14,18 @@
  * @package WordPress
  */
 
+/** Absolute path to the WordPress directory. */
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', __DIR__ . '/' );
+}
+
+// Load DDEV settings before DotEnv populates getenv() with app credentials.
+$ddev_settings = __DIR__ . '/wp-config-ddev.php';
+$is_ddev = getenv('IS_DDEV_PROJECT') === 'true' && is_readable($ddev_settings);
+if ( $is_ddev ) {
+	require_once($ddev_settings);
+}
+
 /* DotEnv */
 define('DIR_VENDOR', __DIR__.'/vendor/');
 require_once DIR_VENDOR . 'autoload.php';
@@ -21,10 +33,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 
-$ddev_settings = dirname(__FILE__) . '/wp-config-ddev.php';
-if ( is_readable($ddev_settings) ) :
-	require_once($ddev_settings);
-else :
+if ( ! $is_ddev ) :
 	define('DB_NAME',     $_ENV['DB_NAME']);
 	define('DB_USER',     $_ENV['DB_USER']);
 	define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
@@ -57,11 +66,6 @@ define('AUTH_SALT',        '|KcyeH8oDUf%$%S}b8X-gFNZR$<--[C5t-R}}69)izpQ+plw-|?N
 define('SECURE_AUTH_SALT', '6~RFs;/<RoIS=&AeBeDY?b~smz_vBji|e?s4*=@EcON%(Jq0zRP|4+q]ur0:]<^q');
 define('LOGGED_IN_SALT',   'LTD^`lL be+l:2f&3&2kEv|w0TRsh1*Z]*SPv;EffW.Xio.g4*]U&tF?|#`;/->@');
 define('NONCE_SALT',       '^/kgxPGVn>TIh!NW|!8]`q-nOwc7.AraCf}4mLgcmmPNZ&p+)?sh%~VR,,{07~:9');
-
-/** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
-}
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
