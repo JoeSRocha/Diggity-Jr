@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a66e027d6cffa9417ee358084fbb6d0e",
+    "content-hash": "73378e8ae09f661447a43ad672f63044",
     "packages": [
         {
             "name": "composer/installers",
@@ -151,6 +151,23 @@
                 }
             ],
             "time": "2024-06-24T20:46:46+00:00"
+        },
+        {
+            "name": "payment-intelligence/payment-intelligence",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:JoeSRocha/payment-intelligence-for-woocommerce.git",
+                "reference": "1fba48424d28eed7547be8c1280a36780f6874dc"
+            },
+            "require": {
+                "composer/installers": "^2.3",
+                "php": ">=7.4"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-2.0-or-later"
+            ]
         },
         {
             "name": "phpoption/phpoption",
@@ -465,6 +482,24 @@
             "homepage": "https://wordpress.org/plugins/disable-emails/"
         },
         {
+            "name": "wpackagist-plugin/disable-xml-rpc-api",
+            "version": "2.1.7",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/disable-xml-rpc-api/",
+                "reference": "tags/2.1.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/disable-xml-rpc-api.2.1.7.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/disable-xml-rpc-api/"
+        },
+        {
             "name": "wpackagist-plugin/ewww-image-optimizer",
             "version": "8.5.0",
             "source": {
@@ -643,6 +678,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/woocommerce-services/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-mail-smtp",
+            "version": "4.9.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-mail-smtp/",
+                "reference": "tags/4.9.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.4.9.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-mail-smtp/"
         }
     ],
     "packages-dev": [],
@@ -653,5 +706,5 @@
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }

@@ -3,11 +3,30 @@
   "description": "Diggityjr.com Website Dependencies",
   "repositories":[
     {
+      "type": "package",
+      "package": {
+        "name": "payment-intelligence/payment-intelligence",
+        "version": "0.1.0",
+        "type": "wordpress-plugin",
+        "license": "GPL-2.0-or-later",
+        "source": {
+          "type": "git",
+          "url": "git@github.com:JoeSRocha/payment-intelligence-for-woocommerce.git",
+          "reference": "1fba48424d28eed7547be8c1280a36780f6874dc"
+        },
+        "require": {
+          "php": ">=7.4",
+          "composer/installers": "^2.3"
+        }
+      }
+    },
+    {
       "type":"composer",
       "url":"https://wpackagist.org"
     }
   ],
   "require": {
+    "payment-intelligence/payment-intelligence": "0.1.0",
     "wpackagist-plugin/advanced-nocaptcha-recaptcha":"^7.6.0",
     "wpackagist-plugin/classic-editor":"^1.6",
     "wpackagist-plugin/contact-form-7":"^6.1.5",
@@ -22,7 +41,9 @@
     "wpackagist-plugin/woocommerce-paypal-payments":"^4.0.3",
     "wpackagist-plugin/woocommerce-services":"^3.6.1",
     "wpackagist-plugin/woocommerce-gateway-stripe":"^10.6.1",
-    "vlucas/phpdotenv": "^4.1.0"
+    "vlucas/phpdotenv": "^4.1.0",
+    "wpackagist-plugin/disable-xml-rpc-api": "^2.1.7",
+    "wpackagist-plugin/wp-mail-smtp": "^4.9.0"
   },
   "extra": {
     "installer-paths": {
