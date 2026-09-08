@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "29aa413cf5f5e34df800275842df866c",
+    "content-hash": "6e6da80b57d6ab8fc2cb87dd37f52edb",
     "packages": [
         {
             "name": "composer/installers",
@@ -410,24 +410,6 @@
             "time": "2022-10-16T00:51:09+00:00"
         },
         {
-            "name": "wpackagist-plugin/advanced-nocaptcha-recaptcha",
-            "version": "7.6.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/advanced-nocaptcha-recaptcha/",
-                "reference": "tags/7.6.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-nocaptcha-recaptcha.7.6.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/advanced-nocaptcha-recaptcha/"
-        },
-        {
             "name": "wpackagist-plugin/classic-editor",
             "version": "1.7.0",
             "source": {
@@ -462,24 +444,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/contact-form-7/"
-        },
-        {
-            "name": "wpackagist-plugin/disable-emails",
-            "version": "1.8.3",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/disable-emails/",
-                "reference": "tags/1.8.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/disable-emails.1.8.3.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/disable-emails/"
         },
         {
             "name": "wpackagist-plugin/disable-xml-rpc-api",
@@ -537,15 +501,15 @@
         },
         {
             "name": "wpackagist-plugin/jetpack",
-            "version": "15.8",
+            "version": "16.1.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/15.8"
+                "reference": "tags/16.1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/jetpack.15.8.zip"
+                "url": "https://downloads.wordpress.org/plugin/jetpack.16.1.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -590,22 +554,22 @@
             "homepage": "https://wordpress.org/plugins/printful-shipping-for-woocommerce/"
         },
         {
-            "name": "wpackagist-plugin/w3-total-cache",
-            "version": "2.10.6",
+            "name": "wpackagist-plugin/pymntpl-paypal-woocommerce",
+            "version": "2.0.26",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/w3-total-cache/",
-                "reference": "tags/2.10.6"
+                "url": "https://plugins.svn.wordpress.org/pymntpl-paypal-woocommerce/",
+                "reference": "tags/2.0.26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/w3-total-cache.2.10.6.zip"
+                "url": "https://downloads.wordpress.org/plugin/pymntpl-paypal-woocommerce.2.0.26.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/w3-total-cache/"
+            "homepage": "https://wordpress.org/plugins/pymntpl-paypal-woocommerce/"
         },
         {
             "name": "wpackagist-plugin/woocommerce",
@@ -624,42 +588,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/woocommerce/"
-        },
-        {
-            "name": "wpackagist-plugin/woocommerce-gateway-stripe",
-            "version": "10.9.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/woocommerce-gateway-stripe/",
-                "reference": "tags/10.9.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce-gateway-stripe.10.9.1.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/woocommerce-gateway-stripe/"
-        },
-        {
-            "name": "wpackagist-plugin/woocommerce-paypal-payments",
-            "version": "4.1.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/woocommerce-paypal-payments/",
-                "reference": "tags/4.1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce-paypal-payments.4.1.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/woocommerce-paypal-payments/"
         },
         {
             "name": "wpackagist-plugin/woocommerce-services",
@@ -698,7 +626,26 @@
             "homepage": "https://wordpress.org/plugins/wp-mail-smtp/"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "wpackagist-plugin/disable-emails",
+            "version": "1.8.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/disable-emails/",
+                "reference": "tags/1.8.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/disable-emails.1.8.3.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/disable-emails/"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {},
