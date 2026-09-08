@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Deploy",
+      "type": "process",
+      "command": "bash",
+      "args": ["${workspaceFolder}/scripts/deploy.sh"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Deploy: Check",
+      "type": "process",
+      "command": "bash",
+      "args": ["${workspaceFolder}/scripts/deploy.sh", "--check"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    }
+  ]
+}
