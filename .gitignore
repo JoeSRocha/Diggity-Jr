@@ -12,6 +12,7 @@ wp-includes
 vendor
 .env
 .ddev/*
+output/*
 
 # Allow
 !wp-content/mu-plugins/
